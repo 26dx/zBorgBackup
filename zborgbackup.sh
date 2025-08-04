@@ -5,7 +5,7 @@
 # Prechecks
 
 if [[ $(id -u) != 0 ]]; then
-    printf "ERROR: Must be roon as root\n\n"
+    printf "ERROR: Must be run as root\n\n"
     exit 1
 fi
 
@@ -22,8 +22,6 @@ path=$1
 backup_repository=$2
 backup_name=$3
 export BORG_REPO=$backup_repository
-
-password_path="$(dirname "$0")/zborgbackup.gpg"
 export BORG_PASSPHRASE='CHANGE_ME'
 
 printf "Backing up:\t\t%s\n" $path
